@@ -1,4 +1,4 @@
-# Mongod DB - M121
+# Aggregation Pipeline m121
 
 ```
 M121
@@ -16,7 +16,7 @@ mongo "mongodb://cluster0-shard-00-00-jxeqq.mongodb.net:27017,cluster0-shard-00-
 **ens**
 
 ```
-const pipeline = [
+const pipeline1 = [
 	{
 		$match : {
 			'imdb.rating' : {
@@ -54,5 +54,41 @@ const pipeline = [
 		}
 	}
 ]
-db.movies.aggregate( pipeline )
+
+validateLab1(db.movies.aggregate( pipeline1 ))
+```
+
+```
+const pipeline2 = [
+	{
+		$match : {
+			'imdb.rating' : {
+				$gte : 7
+			} ,
+			genres : {
+				$nin : [
+					'Crime' , 'Horror'
+				] } ,
+			rated : {
+				$in : [
+					'PG' , 'G'
+				] } ,
+			languages : {
+				$all : [
+					'English' ,
+					'Japanese'
+				]
+			}
+		}
+	} ,
+	{
+		$project : {
+			title : 1 ,
+			_id   : 0 ,
+			rated : 1 ,
+		}
+	}
+]
+
+db.movies.aggregate( pipeline2 )
 ```

@@ -1,0 +1,20 @@
+{
+  "name": "M121",
+  "version": "1.0.0",
+  "description": "```\r M121\r ├─ .git\r ├─ chapter1\r │  ├─ validateLab1.js\r │  └─ validateLab2.js\r ├─ chapter1.zip\r ├─ index.js\r ├─ node_modules\r └─ readme.md",
+  "main": "index.js",
+  "scripts": {
+    "esl": " index.js | eslint --fix"
+  },
+  "repository": "git+https://github.com/EvangelosKolimitras/mdb-m121.git",
+  "keywords": [],
+  "author": "Evangelos_Kolimitras <evangeloskolimitras@outlook.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EvangelosKolimitras/mdb-m121/issues"
+  },
+  "homepage": "https://github.com/EvangelosKolimitras/mdb-m121#readme",
+  "dependencies": {
+    "eslint": "^6.5.1"
+  }
+}

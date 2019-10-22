@@ -1,5 +1,4 @@
-/* eslint-disable function-call-argument-newline */
-const pipeline = [
+const pipeline1 = [
 	{
 		$match : {
 			'imdb.rating' : {
@@ -37,4 +36,35 @@ const pipeline = [
 		}
 	}
 ]
-db.movies.aggregate( pipeline )
+const pipeline2 = [
+	{
+		$match : {
+			'imdb.rating' : {
+				$gte : 7
+			} ,
+			genres : {
+				$nin : [
+					'Crime' , 'Horror'
+				] } ,
+			rated : {
+				$in : [
+					'PG' , 'G'
+				] } ,
+			languages : {
+				$all : [
+					'English' ,
+					'Japanese'
+				]
+			}
+		}
+	} ,
+	{
+		$project : {
+			title : 1 ,
+			_id   : 0 ,
+			rated : 1 ,
+		}
+	}
+]
+validateLab1( db.movies.aggregate( pipeline1 ) )
+validateLab2( db.movies.aggregate( pipeline2 ) )
