@@ -12,8 +12,11 @@ M121
 └─ readme.md
 
 ```
-mongo "mongodb://cluster0-shard-00-00-jxeqq.mongodb.net:27017,cluster0-shard-00-01-jxeqq.mongodb.net:27017,cluster0-shard-00-02-jxeqq.mongodb.net:27017/aggregations?replicaSet=Cluster0-shard-0" --authenticationDatabase admin --ssl -u m121 -p aggregations --norc
-**ens**
+
+``` mongo "mongodb://cluster0-shard-00-00-jxeqq.mongodb.net:27017,cluster0-shard-00-01-jxeqq.mongodb.net:27017,cluster0-shard-00-02-jxeqq.mongodb.net:27017/aggregations?replicaSet=Cluster0-shard-0" --authenticationDatabase admin --ssl -u m121 -p aggregations --norc ```
+
+
+### Pipeline 1
 
 ```
 const pipeline1 = [
@@ -58,6 +61,7 @@ const pipeline1 = [
 validateLab1(db.movies.aggregate( pipeline1 ))
 ```
 
+### Pipeline 2
 ```
 const pipeline2 = [
 	{
@@ -90,5 +94,5 @@ const pipeline2 = [
 	}
 ]
 
-db.movies.aggregate( pipeline2 )
+validateLab2(db.movies.aggregate( pipeline2 ))
 ```
